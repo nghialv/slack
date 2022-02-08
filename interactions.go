@@ -49,6 +49,7 @@ type InteractionCallback struct {
 	AttachmentID    string          `json:"attachment_id"`
 	ActionCallback  ActionCallbacks `json:"actions"`
 	View            View            `json:"view"`
+	WorkflowStep    WorkflowStep    `json:"workflow_step"`
 	ActionID        string          `json:"action_id"`
 	APIAppID        string          `json:"api_app_id"`
 	BlockID         string          `json:"block_id"`
@@ -66,6 +67,12 @@ type InteractionCallback struct {
 	// NOTE: InteractionCallback.State has a role for the state of dialog_submission type,
 	// so we cannot use this field for backward-compatibility for now.
 	BlockActionState *BlockActionStates `json:"-"`
+}
+
+type WorkflowStep struct {
+	WorkflowID     string `json:"workflow_id"`
+	StepID         string `json:"step_id"`
+	WorkflowStepID string `json:"workflow_step_edit_id"`
 }
 
 type BlockActionStates struct {

@@ -311,6 +311,12 @@ type EmojiChangedEvent struct {
 	Value string `json:"value,omitempty"`
 }
 
+type WorkflowStepExecuteEvent struct {
+	Type         string             `json:"type"`
+	CallbackID   string             `json:"callback_id"`
+	WorkflowStep slack.WorkflowStep `json:"workflow_step"`
+}
+
 // JSONTime exists so that we can have a String method converting the date
 type JSONTime int64
 
@@ -469,6 +475,8 @@ const (
 	TokensRevoked = "tokens_revoked"
 	// EmojiChanged A custom emoji has been added or changed
 	EmojiChanged = "emoji_changed"
+	// WorkflowStepExecute
+	WorkflowStepExecute = "workflow_step_execute"
 )
 
 // EventsAPIInnerEventMapping maps INNER Event API events to their corresponding struct
@@ -503,4 +511,5 @@ var EventsAPIInnerEventMapping = map[string]interface{}{
 	TeamJoin:              TeamJoinEvent{},
 	TokensRevoked:         TokensRevokedEvent{},
 	EmojiChanged:          EmojiChangedEvent{},
+	WorkflowStepExecute:   WorkflowStepExecuteEvent{},
 }

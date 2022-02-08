@@ -69,12 +69,6 @@ type InteractionCallback struct {
 	BlockActionState *BlockActionStates `json:"-"`
 }
 
-type WorkflowStep struct {
-	WorkflowID         string `json:"workflow_id"`
-	StepID             string `json:"step_id"`
-	WorkflowStepEditID string `json:"workflow_step_edit_id"`
-}
-
 type BlockActionStates struct {
 	Values map[string]map[string]BlockAction `json:"values"`
 }
